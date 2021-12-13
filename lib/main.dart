@@ -21,10 +21,10 @@ class Koobo extends StatelessWidget {
           return MaterialApp(
             debugShowCheckedModeBanner: false,
             title: 'Koobo',
-            theme: ThemeData(
-                primaryColor: const Color.fromRGBO(0, 75, 221, 0.6),
-                appBarTheme:
-                    const AppBarTheme(color: Color.fromRGBO(0, 75, 221, 0.6))),
+            // theme: ThemeData(
+            //     primaryColor: const Color.fromRGBO(0, 75, 221, 0.6),
+            //     appBarTheme:
+            //         const AppBarTheme(color: Color.fromRGBO(0, 75, 221, 0.6))),
             navigatorKey: StackedService.navigatorKey,
             onGenerateRoute: StackedRouter().onGenerateRoute,
           );
