@@ -6,7 +6,7 @@ import 'package:stacked_services/stacked_services.dart';
 class OnboardingViewModel extends BaseViewModel {
   final String _banner = 'Move Money With Ease';
   final String _createAccount = 'Create an account';
-  final String _ownAccount = 'Already have an account';
+  final String _ownAccount = 'Already have an account? ';
   final String _signIn = 'Sign in';
   final String _logo = 'images/logo.png';
 
@@ -18,7 +18,7 @@ class OnboardingViewModel extends BaseViewModel {
 
   final _navigationService = locator<NavigationService>();
 
-  void navigateToHomeView() {
-    _navigationService.navigateTo(Routes.buttomNavigation);
+  void navigateToSignUp() {
+    _navigationService.navigateTo(Routes.signup);
   }
 }

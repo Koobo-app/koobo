@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -16,13 +17,15 @@ class OnboardingView extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Align(
-                    alignment: Alignment.center,
-                    child: Image.asset(
-                      model.logo,
-                      width: 373,
-                      height: 292,
-                    )),
+                Padding(
+                    padding: const EdgeInsets.all(10),
+                    child: Align(
+                        alignment: Alignment.center,
+                        child: Image.asset(
+                          model.logo,
+                          width: 373,
+                          height: 292,
+                        ))),
                 const SizedBox(
                   height: 20,
                 ),
@@ -32,13 +35,13 @@ class OnboardingView extends StatelessWidget {
                       fontSize: 28, fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(
-                  height: 50,
+                  height: 80,
                 ),
                 Container(
                   width: 315,
                   height: 55,
                   decoration: const BoxDecoration(
-                      color: Color.fromRGBO(0, 75, 221, 0.8),
+                      color: Color.fromRGBO(18, 18, 18, 0.4),
                       borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(15.0),
                         topRight: Radius.circular(15.0),
@@ -46,7 +49,7 @@ class OnboardingView extends StatelessWidget {
                         bottomRight: Radius.circular(15.0),
                       )),
                   child: ElevatedButton(
-                    onPressed: () => model.navigateToHomeView(),
+                    onPressed: () => model.navigateToSignUp(),
                     child: Text(model.createAccount,
                         style: GoogleFonts.inter(
                             fontSize: 16, color: Colors.white)),
@@ -58,9 +61,12 @@ class OnboardingView extends StatelessWidget {
                 RichText(
                   text: TextSpan(
                       text: model.ownAccount,
-                      style: GoogleFonts.inter(fontSize: 16),
+                      style:
+                          GoogleFonts.inter(fontSize: 16, color: Colors.black),
                       children: <TextSpan>[
                         TextSpan(
+                            recognizer: TapGestureRecognizer()
+                              ..onTap = () => model.navigateToSignUp(),
                             text: model.signIn,
                             style: GoogleFonts.inter(
                                 fontSize: 16, color: Colors.green))
