@@ -1,24 +1,16 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:koobo/screens/signup/signup_viewmodel.dart';
-import 'package:koobo/widget/appbar.dart';
+import 'package:koobo/screens/login/login_viewmodel.dart';
 import 'package:koobo/widget/textfield.dart';
-import 'package:stacked/stacked.dart';
 
-class Signup extends StatelessWidget {
-  const Signup({Key? key}) : super(key: key);
-  static const routeName = "/signup";
+class Login extends StatelessWidget {
+  const Login({Key? key}) : super(key: key);
+  static const routeName = "/login";
 
   @override
   Widget build(BuildContext context) {
-    final controller = SignupViewController.instance;
+    final controller = LoginController.instance;
     return Scaffold(
-      // extendBodyBehindAppBar: true,
-      // appBar: Appbar(
-      //   onPressed: () => model.navigateBack(),
-      //   title: model.createAccount,
-      // ),
       body: ListView(
         children: [
           const SizedBox(
@@ -38,7 +30,7 @@ class Signup extends StatelessWidget {
                 width: 100,
               ),
               Text(
-                controller.createAccount,
+                controller.signin,
                 style: GoogleFonts.inter(fontSize: 16, color: Colors.black),
               ),
             ],
@@ -66,20 +58,7 @@ class Signup extends StatelessWidget {
             ),
           ),
           const SizedBox(
-            height: 20,
-          ),
-          Padding(
-            padding: const EdgeInsets.only(right: 20, left: 20),
-            child: Textfield(
-              obsecure: true,
-              label: controller.confirmPassword,
-              suffix: const Icon(
-                Icons.visibility_outlined,
-              ),
-            ),
-          ),
-          const SizedBox(
-            height: 200,
+            height: 240,
           ),
           Align(
             alignment: Alignment.center,

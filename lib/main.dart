@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:koobo/app/app.locator.dart';
-import 'package:koobo/app/app.router.dart';
-import 'package:stacked_services/stacked_services.dart';
+import 'package:koobo/screens/login/login_view.dart';
+import 'package:koobo/screens/signup/signup_view.dart';
+
+import 'screens/onboarding/onboarding_view.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  setupLocator();
   runApp(const Koobo());
 }
 
@@ -21,12 +21,27 @@ class Koobo extends StatelessWidget {
           return MaterialApp(
             debugShowCheckedModeBanner: false,
             title: 'Koobo',
-            // theme: ThemeData(
-            //     primaryColor: const Color.fromRGBO(0, 75, 221, 0.6),
-            //     appBarTheme:
-            //         const AppBarTheme(color: Color.fromRGBO(0, 75, 221, 0.6))),
-            navigatorKey: StackedService.navigatorKey,
-            onGenerateRoute: StackedRouter().onGenerateRoute,
+            //navigatorKey: StackedService.navigatorKey,
+            onGenerateRoute: (routeSettings) => MaterialPageRoute(
+              settings: routeSettings,
+              builder: (context) {
+                switch (routeSettings.name) {
+                  case Navigator.defaultRouteName:
+                    return const OnboardingView();
+                  case Login.routeName:
+                    return const Login();
+                  case Signup.routeName:
+                    return const Signup();
+                }
+
+                throw FlutterError("Unknown Route: ${routeSettings.name}");
+              },
+            ),
+            theme: ThemeData(
+              scaffoldBackgroundColor: Colors.white,
+              //colorScheme: const ColorScheme.light(),
+            ),
+            //onGenerateRoute: StackedRouter().onGenerateRoute,
           );
         });
   }

@@ -1,22 +1,22 @@
-// GENERATED CODE - DO NOT MODIFY BY HAND
+// // GENERATED CODE - DO NOT MODIFY BY HAND
 
-// **************************************************************************
-// StackedLocatorGenerator
-// **************************************************************************
+// // **************************************************************************
+// // StackedLocatorGenerator
+// // **************************************************************************
 
-// ignore_for_file: public_member_api_docs
+// // ignore_for_file: public_member_api_docs
 
-import 'package:stacked/stacked.dart';
-import 'package:stacked/stacked_annotations.dart';
-import 'package:stacked_services/stacked_services.dart';
+// import 'package:stacked/stacked.dart';
+// import 'package:stacked/stacked_annotations.dart';
+// import 'package:stacked_services/stacked_services.dart';
 
-final locator = StackedLocator.instance;
+// final locator = StackedLocator.instance;
 
-void setupLocator({String? environment, EnvironmentFilter? environmentFilter}) {
-// Register environments
-  locator.registerEnvironment(
-      environment: environment, environmentFilter: environmentFilter);
+// void setupLocator({String? environment, EnvironmentFilter? environmentFilter}) {
+// // Register environments
+//   locator.registerEnvironment(
+//       environment: environment, environmentFilter: environmentFilter);
 
-// Register dependencies
-  locator.registerLazySingleton(() => NavigationService());
-}
+// // Register dependencies
+//   locator.registerLazySingleton(() => NavigationService());
+// }

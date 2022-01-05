@@ -1,9 +1,10 @@
-import 'package:koobo/app/app.locator.dart';
-import 'package:koobo/app/app.router.dart';
-import 'package:stacked/stacked.dart';
-import 'package:stacked_services/stacked_services.dart';
+import 'package:flutter/cupertino.dart';
 
-class SignupViewmodel extends BaseViewModel {
+class SignupViewController with ChangeNotifier {
+  static SignupViewController? _instance;
+  static SignupViewController get instance =>
+      _instance ??= SignupViewController();
+
   final String _createAccount = 'Create an Account';
   final String _email = 'Email';
   final String _password = 'Password';
@@ -15,10 +16,4 @@ class SignupViewmodel extends BaseViewModel {
   String get password => _password;
   String get confirmPassword => _confirmPassword;
   String get next => _next;
-
-  final _navigationService = locator<NavigationService>();
-
-  void navigateBack() {
-    _navigationService.navigateTo(Routes.onboardingView);
-  }
 }

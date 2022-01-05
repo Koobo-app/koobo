@@ -1,9 +1,10 @@
-import 'package:koobo/app/app.locator.dart';
-import 'package:koobo/app/app.router.dart';
-import 'package:stacked/stacked.dart';
-import 'package:stacked_services/stacked_services.dart';
+import 'package:flutter/cupertino.dart';
 
-class OnboardingViewModel extends BaseViewModel {
+class OnboardingViewModel with ChangeNotifier {
+  static OnboardingViewModel? _instance;
+  static OnboardingViewModel get instance =>
+      _instance ??= OnboardingViewModel();
+
   final String _banner = 'Move Money With Ease';
   final String _createAccount = 'Create an account';
   final String _ownAccount = 'Already have an account? ';
@@ -15,10 +16,4 @@ class OnboardingViewModel extends BaseViewModel {
   String get ownAccount => _ownAccount;
   String get signIn => _signIn;
   String get logo => _logo;
-
-  final _navigationService = locator<NavigationService>();
-
-  void navigateToSignUp() {
-    _navigationService.navigateTo(Routes.signup);
-  }
 }
