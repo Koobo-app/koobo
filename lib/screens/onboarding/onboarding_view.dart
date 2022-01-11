@@ -8,6 +8,7 @@ import 'onboarding_viewmodel.dart';
 
 class OnboardingView extends StatelessWidget {
   const OnboardingView({Key? key}) : super(key: key);
+  static const routeName = '/onboard';
   @override
   Widget build(BuildContext context) {
     final controller = OnboardingViewModel.instance;
@@ -39,18 +40,19 @@ class OnboardingView extends StatelessWidget {
             width: 315,
             height: 55,
             decoration: const BoxDecoration(
-                color: Color.fromRGBO(18, 18, 18, 0.4),
                 borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(15.0),
-                  topRight: Radius.circular(15.0),
-                  bottomLeft: Radius.circular(15.0),
-                  bottomRight: Radius.circular(15.0),
-                )),
+              topLeft: Radius.circular(15.0),
+              topRight: Radius.circular(15.0),
+              bottomLeft: Radius.circular(15.0),
+              bottomRight: Radius.circular(15.0),
+            )),
             child: ElevatedButton(
               onPressed: () => Navigator.pushNamed(
                 context,
                 Signup.routeName,
               ),
+              style: ElevatedButton.styleFrom(
+                  primary: Color.fromRGBO(18, 18, 18, 0.4)),
               child: Text(controller.createAccount,
                   style: GoogleFonts.inter(fontSize: 16, color: Colors.white)),
             ),

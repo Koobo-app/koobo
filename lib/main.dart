@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:koobo/screens/login/login_view.dart';
 import 'package:koobo/screens/signup/signup_view.dart';
+import 'package:koobo/screens/startup/onboarding_screen.dart';
 
 import 'screens/onboarding/onboarding_view.dart';
 
@@ -27,6 +28,8 @@ class Koobo extends StatelessWidget {
               builder: (context) {
                 switch (routeSettings.name) {
                   case Navigator.defaultRouteName:
+                    return OnboardingScreen();
+                  case OnboardingView.routeName:
                     return const OnboardingView();
                   case Login.routeName:
                     return const Login();
